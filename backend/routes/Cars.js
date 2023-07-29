@@ -33,3 +33,70 @@ router.post('/ajout', upload.any('image') , (req,res)=>{
         }
     )
 });
+
+
+router.get('/getall',(req,res)=>{
+    Cars.find()
+    .then(
+        (result)=>{
+            res.send(result)
+        }
+    )
+    .catch(
+        (err)=>{
+            res.send(err)
+        }
+    )
+});
+
+router.delete('/supprimer/:id', (req,res)=>{
+    let myId = req.params.id;
+    Cars.findByIdAndDelete({_id:myId})
+    .then(
+        (result)=>{
+            res.send(result)
+        }
+    )
+    .catch(
+        (err)=>{
+            res.send(err)
+        }
+    )
+});
+
+router.put('/update/:id', upload.any('image') , (req,res)=>{
+    let myId = req.params.id;
+    let newdata=req.body;
+    if(filename.length>0){
+        newdata.image=filename}
+
+    Cars.findByIdAndUpdate({_id:myId},newdata)
+    .then(
+        (result)=>{
+            res.send(result)
+            filename='';
+
+        }
+    )
+    .catch(
+        (err)=>{
+            res.send(err)
+        }
+    )
+});
+
+router.get('/getbyNom/:nom', (req,res)=>{
+    let myNom = req.params.nom;
+    Cars.find({nom:myNom})
+    .then(
+        (result)=>{
+            res.send(result)
+        }
+    )
+    .catch(
+        (err)=>{
+            res.send(err)
+        }
+    )
+
+});

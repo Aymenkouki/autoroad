@@ -1,0 +1,66 @@
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('assets/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+        <div class="col-md-9 pb-5">
+            <p class="breadcrumbs"><span class="mr-2"><a href="/home">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
+          <h1 class="mb-3 bread">Contact us</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="ftco-section contact-section">
+    <div class="container">
+      <div class="row d-flex mb-5 contact-info justify-content-center">
+          <div class="col-md-8">
+              <div class="row mb-5">
+                <div class="col-md-4 text-center py-4">
+                    <div class="icon">
+                        <span class="icon-map-o"></span>
+                    </div>
+                  <p><span>Address:</span>MUTUELLEVILLE, TUNIS, TUNISIA</p>
+                </div>
+                <div class="col-md-4 text-center border-height py-4">
+                    <div class="icon">
+                        <span class="icon-mobile-phone"></span>
+                    </div>
+                  <p><span>Phone:</span> <a href="tel://+21699020894">+216 99 020 894</a></p>
+                </div>
+                <div class="col-md-4 text-center py-4">
+                    <div class="icon">
+                        <span class="icon-envelope-o"></span>
+                    </div>
+                  <p><span>Email:</span> <a href="mailto:aymen@gmail.com">aymen@gmail.com</a></p>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="row block-9 justify-content-center mb-5">
+        <div class="col-md-8 mb-md-5">
+            <h2 class="text-center">If you got any questions <br>please do not hesitate to send us a message</h2>
+            <div class="form-group">
+              <input [(ngModel)]="mess.name" type="text" class="form-control" placeholder="Your Name">
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group">
+              <input [(ngModel)]="mess.email" type="text" class="form-control" placeholder="Your Email">
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group">
+              <input [(ngModel)]="mess.subject" type="text" class="form-control" placeholder="Subject">
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group">
+              <textarea [(ngModel)]="mess.msg" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group">
+              <button [disabled]=" mess.name == '' || mess.email == '' || mess.subject == '' || mess.msg == '' "  class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton" (click)="sendmsg()">Send Message</button>
+            </div>
+        
+        </div>
+      </div>
+    </div>
+  </section>

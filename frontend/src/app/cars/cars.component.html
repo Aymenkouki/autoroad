@@ -1,0 +1,53 @@
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('assets/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+        <div class="col-md-9 pb-5">
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+          <h1 class="mb-1 bread">Choose Your Car</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let item of cars | paginate : {
+                itemsPerPage : tablesize,
+                currentPage : page,
+                totalItems : count} , 
+                let i = index" class="col-md-3">
+                <div class="car-wrap">
+                    <div class="img d-flex align-items-end" style="background-image: url(http://127.0.0.1:3000/getimage/{{item.image}});">
+                        <div class="price-wrap d-flex">
+                            <span class="rate">${{item.rent}}</span>
+                            <p class="from-day">
+                                <span>From</span>
+                                <span>/Day</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text p-4 text-center">
+                        <h2 class="mb-0"><a href="car-single.html">{{item.constructeur}}</a></h2>
+                        <span>{{item.nom}}</span>
+                        <p class="d-flex mb-0 d-block">
+                            <a href="#" class="btn btn-black btn-outline-black mr-1">Book now</a> 
+                            <a href="#" class="btn btn-black btn-outline-black ml-1">Details</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="text-center mb-5">
+    <pagination-controls 
+        PreviousLabel = "prev"
+        NextLabel = "next"
+        (pageChange) = "ontabledatachange($event)">
+    </pagination-controls>
+</div>
